@@ -1,13 +1,21 @@
-# Your code here
-
-
 
 def finder(files, queries):
     """
     YOUR CODE HERE
     """
     # Your code here
+    hashT = {}
+    result = []
+    for f in files:
+        temp = f.split('/')
+        if temp[-1] in hashT:
+            hashT[temp[-1]].append(f)
+        else:
+            hashT[temp[-1]] = [f]
 
+    for q in queries:
+        if q in hashT:
+            result += hashT[q]
     return result
 
 
